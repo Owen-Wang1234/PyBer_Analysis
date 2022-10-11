@@ -58,7 +58,7 @@ With the chart and some statistical analysis, the ride count summary is:
 
 - One point of interest is that the Urban group has an outlier in the maximum value of 39 rides. The city with this value is West Angela.
 - Despite that outlier, the mean values come quite close to the median values; primarily because the mode either matches the median or is close enough to the median to pull the average.
-- The urban group has the mean and median values almost **four** times as large as those of the rural group. The suburban group has those values almost **three** times as large as the rural values. The suburban group has those values almost **70.83%** of those of the urban group.
+- The urban group has the mean and median values almost **four** times as large as those of the rural group. The suburban group has those values almost **three** times as large as the rural values. The suburban group has those values almost **70.83%** of those of the urban group. One likely theory is that people living in rural environments are more likely to own their own transportation out of necessity, while those living in urban environments may find vehicle ownership inconvenient in several areas.
 
 The next box-and-whisker plot covers some statistics about the ride fares for each city type.
 
@@ -73,7 +73,8 @@ With the chart and some statistical analysis, the ride fare summary is:
 | Rural | $34.62 | $37.05 | $37.05 (2 times) | $10.11 | $58.55 |
 
 - The mean values come fairly close to the median values, but one interesting observation is that the suburban mode is not near the mean or median compared to the urban mode and the rural mode. One theory is that there are a fair number of high value fares that skewed the mean and median away.
-- The rural group has the greatest average, median, and maximum fare values, and the urban group has the lowest average, median, and maximum fare values. Interestingly the urban group has the lowest minimum fare value, which might be a result of that ride only traveling a few blocks.
+- The rural group has the greatest average, median, and maximum fare values, and the urban group has the lowest average, median, and maximum fare values. One likely theory - under the assumption that the rate is uniform - is that rides in rural cities travel a much greater distances than rides in urban cities.
+- Interestingly the urban group also has the lowest minimum fare value, which might be a result of that ride being particularly short, only traveling a few blocks.
 
 The last box-and-whisker plot covers some statistics about the driver counts for each city type.
 
@@ -88,8 +89,8 @@ With the chart and some statistical analysis, the driver count summary is:
 | Rural | 4 | 4 | 1 (32 times) | 1 | 9 |
 
 - The statistic calculations here reflect the weighted statistics involving the driver count and ride count of each city.
-- The mean values nearly match the median values except for the suburban group.
-- The mean and median values for the urban group is nearly **nine** times as large as those of the rural group. The suburban group has those values almost **four** times as large as the rural values. The suburban group has those values almost **40%** of those of the urban group.
+- The weighted mean values nearly match the weighted median values except for the suburban group.
+- The weighted mean and median values for the urban group is nearly **nine** times as large as those of the rural group. The suburban group has those values almost **four** times as large as the rural values. The suburban group has those values almost **40%** of those of the urban group.
 
 #### Pie Charts
 The fares, ride count, and driver count are all added up while grouped by city type, and the results are plotted into these pie charts.
@@ -102,15 +103,42 @@ The fares, ride count, and driver count are all added up while grouped by city t
 
 Prior to creating the pie charts, one thing of note is that there are 66 Urban cities, 36 Suburban cities, and 18 Rural cities for a total of 120 cities. The resulting distributions are summarized as so:
 
-| | Urban | Suburban | Rural | 'Total' |
+| | Urban | Suburban | Rural | `Total` |
 | ---: | ---: | ---: | ---: | ---: |
-| Cities | 66 | 36 | 18 | '120' |
-| | 55% | 30% | 15% | '100%' |
-| Fares | $39,854.38 | $19,356.33 | $4,327.93 | '$63,538.64' |
-| | 62.7% | 30.5% | 6.8% | '100%' |
-| Rides | 1,625 | 625 | 125 | '2,375' |
-| | 68.4% | 26.3% | 5.3% | '100%' |
-| Drivers | 2,405 | 490 | 78 | '2,973' |
-| | 80.9% | 16.5% | 2.6% | '100%' |
+| Cities | 66 | 36 | 18 | `120` |
+| | 55% | 30% | 15% | `100%` |
+| Fares | $39,854.38 | $19,356.33 | $4,327.93 | `$63,538.64` |
+| | 62.7% | 30.5% | 6.8% | `100%` |
+| Rides | 1,625 | 625 | 125 | `2,375` |
+| | 68.4% | 26.3% | 5.3% | `100%` |
+| Drivers | 2,405 | 490 | 78 | `2,973` |
+| | 80.9% | 16.5% | 2.6% | `100%` |
+
+#### PyBer Summary
+For the first part of the Module Challenge, the data was summarized as below:
+
+![General summary of the PyBer data for 2019](https://github.com/Owen-Wang1234/PyBer_Analysis/blob/main/analysis/PyBer%20Summary.png)
+
+The rural city group has the highest average fare per ride and driver while the urban city group has the lowest. Even though the urban group earned close to 10 times the fares the rural group earned, the urban group has **13** times as many rides and **31** times as many drivers.
+
+The suburban city group sits in the middle, earning twice the fares of the rural group and half the fares of the urban group. The suburban group has over **5** times as many rides and **6** times as many drivers as the rural group; this is still much smaller than the urban group, especially the driver count. The pie charts above reflect the disproportion of the urban group over the others.
+
+#### Weekly Trend Chart
+For the other part of the Module Challenge, a multi-line chart was assembled to map the fares over time for each city type.
+
+![Multi-Line Chart summarizing the PyBer Fare by City Type](https://github.com/Owen-Wang1234/PyBer_Analysis/blob/main/analysis/PyBer_fare_summary.png)
+
+When tracking the fares on a weekly basis, it can be noticed that:
+- The urban fares did not fall below $1,500.
+- The suburban fares do not rise above $1,500 nor fall below $500.
+- The rural fares do not appear to rise above $500.
 
 ## General Summary
+
+With all of the observations from the charts above, some recommendations can be made:
+
+**1. Investigate Rides per Driver:** The urban group has the largest share of rides, drivers, and fares, but the average fare per ride and per driver are the lowest. Additionally, there may be cities with more drivers but fewer rides as well as the reverse, as indicated by the disparate sizes of the data points in the scatter plot. Further investigation should include looking into the ride count per driver for each city and city type and mapping that out. This will help determine which cities have a high quotient and may benefit from more drivers or which cities have a low quotient and need more outreach to encourage PyBer use.
+
+**2. Encourage Growth in Rural and Suburban Cities:** The rural and suburban cities together comprise about 37.5% of the 2019 fares so far, about 31.6% of the rides, and about 19.1% of the drivers; and the rural cities are only a small part of that. Some means should be taken to grow the rural and suburban sectors. Some outreach to investigate what would encourage residents there to use PyBer or what discourages those residents from using PyBer would be beneficial.
+
+**3. Compare to Previous Years:** The results may or may not seem impressive for the current period, but without any reference to the previous years, there is no way to determine 2019 is an improvement from 2018 or before. In any case, the line chart does not appear to show much of a trend over the period, but if summary data of 2019 were to be aggregated with summary data of other years, perhaps some form of trend might emerge.
